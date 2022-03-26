@@ -1,12 +1,4 @@
-@font-face {
-  font-family: "Roboto";
-  src: url("fonts/RobotoRegular/RobotoRegular.eot");
-  src: url("fonts/RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),
-  url("fonts/RobotoRegular/RobotoRegular.woff") format("woff"),
-  url("fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
+
 
 * {
   box-sizing: border-box;  
@@ -184,7 +176,7 @@ textarea {
   padding: 0 20px;
 }
 #logo {
-  background-image: url('../img/logo_mini.svg');
+  background-image: url('_Resources/img/logo_mini.svg');
   background-size: auto 100%;
   background-repeat: no-repeat;
   width: 100%;
@@ -226,7 +218,7 @@ textarea {
   top:15px;
   display: block;
   position: absolute;
-  background-image: url('../img/close_icon.png');
+  background-image: url('_Resources/img/close_icon.png');
   background-size: auto 100%;
   background-repeat: no-repeat;
   width: 37px;
@@ -330,15 +322,15 @@ a:hover {
 } */
 
 .google-pay {
-  background-image: url('../img/pay_google_black.svg');
+  background-image: url('_Resources/img/pay_google_black.svg');
 }
 
 .apple-pay {
-  background-image: url('../img/pay_apple_black.svg');
+  background-image: url('_Resources/img/pay_apple_black.svg');
 }
 
 .samsung-pay {
-  background-image: url('../img/pay_samsung_black.png');
+  background-image: url('_Resources/img/pay_samsung_black.png');
 }
 
 #payment-methods {
@@ -355,7 +347,7 @@ a:hover {
   margin-bottom: 0px;
 }
 .sbp-pay {
-  background-image: url('../img/pay_sbp.svg');
+  background-image: url('_Resources/img/pay_sbp.svg');
   background-size: 75%;
 }
 
@@ -396,7 +388,7 @@ a:hover {
 
 button.loading{
   color: transparent !important;
-background-image: url('../img/loading.svg'); 
+background-image: url('_Resources/img/loading.svg');
   background-color: transparent !important;
   background-repeat:no-repeat;
    background-position:center;
@@ -674,43 +666,43 @@ ul input {
 }
 
 li.cvc input {
-  background-image: url('../img/mark_cvc_empty.svg');
+  background-image: url('_Resources/img/mark_cvc_empty.svg');
   background-position: 100% center;
   background-size: auto 100%;
 }
 
 .onlyCardNum:not(.ps-icon-hidden) {
-  background: url(../img/mark_mir_empty.svg) 100% no-repeat, url(../img/mark_mc_empty.svg) 90% no-repeat, url(../img/mark_visa_empty.svg) 79% no-repeat;
+  background: url(_Resources/img/mark_mir_empty.svg) 100% no-repeat, url(_Resources/img/mark_mc_empty.svg) 90% no-repeat, url(_Resources/img/mark_visa_empty.svg) 79% no-repeat;
   background-position-y: center;
   background-size: auto 90%;	
 }
 
 .visa:not(.ps-icon-hidden) {
-  background-image: url('../img/mark_visa_empty.svg');
+  background-image: url('_Resources/img/mark_visa_empty.svg');
   background-position: 100% center;
   background-size: auto 90%;
 }
 
 .mastercard:not(.ps-icon-hidden) {
-  background-image: url('../img/mark_mc_empty.svg');
+  background-image: url('_Resources/img/mark_mc_empty.svg');
   background-position: 100% center;
   background-size: auto 90%;
 }
 
 .amex:not(.ps-icon-hidden) {
-  background-image: url('../img/mark_amex.png');
+  background-image: url('_Resources/img/mark_amex.png');
   background-position: 100% center;
   background-size: auto 90%;
 }
 
 .jcb:not(.ps-icon-hidden) {
-  background-image: url('../img/mark_jcb.png');
+  background-image: url('_Resources/img/mark_jcb.png');
   background-position: 100% center;
   background-size: auto 90%;
 }
 
 .mir:not(.ps-icon-hidden) {
-  background-image: url('../img/mark_mir_empty.svg');
+  background-image: url('_Resources/img/mark_mir_empty.svg');
   background-position: 100% center;
   background-size: auto 90%;
 }
@@ -736,7 +728,7 @@ ul .ic {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(../img/arrow-down.svg) no-repeat #FFF;
+  background: url(_Resources/img/arrow-down.svg) no-repeat #FFF;
   background-size: 21px 20px;
   background-position: 92% center;
   font-family: 'Roboto';
@@ -1117,7 +1109,7 @@ ul .ic {
 }
 
 .masterpass-logo{
-  background:url('../img/masterpass-logo.svg') no-repeat center;
+  background:url('_Resources/img/masterpass-logo.svg') no-repeat center;
   background-size:175px 30px;
   height: 30px;
   margin: 20px 0 20px 0;
@@ -1161,7 +1153,7 @@ ul .ic {
 }
 
 #mp-add-card-button div {
-  background: url('../img/plus.svg');
+  background: url('_Resources/img/plus.svg');
   background-size: 21px 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1174,14 +1166,14 @@ ul .ic {
 }
 
 #card-list .delete-card {
-  background: url('../img/x.svg');
+  background: url('_Resources/img/x.svg');
   background-size: 21px 20px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 #card-list .change-card {
-  background: url('../img/pencil.svg');
+  background: url('_Resources/img/pencil.svg');
   background-size: 21px 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1219,7 +1211,7 @@ ul .ic {
 }
 
 #mp-logout{
-  background: url('../img/x.svg');
+  background: url('_Resources/img/x.svg');
   background-size: 21px 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1276,7 +1268,7 @@ ul .ic {
 }
 
 #mp-arrow{
-  background: url('../img/arrow-down.svg');
+  background: url('_Resources/img/arrow-down.svg');
   background-size: 21px 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1316,7 +1308,7 @@ ul .ic {
   margin-top: 50px;
 }
 #mobile-commerce-confirm-cover .close{
-  background: url('../img/x.svg');
+  background: url('_Resources/img/x.svg');
   background-size: 21px 20px;
   background-repeat: no-repeat;
   background-position: center;
@@ -1333,20 +1325,20 @@ ul .ic {
   background-position: left 15px;  
 }
 #mobile-commerce-confirm-cover.mts form {
-  background-image: url('../img/logo_mts.png');
+  background-image: url('_Resources/img/logo_mts.png');
 
 }
 #mobile-commerce-confirm-cover.beeline form {
-  background-image: url('../img/logo_beeline.png');
+  background-image: url('_Resources/img/logo_beeline.png');
 }
 #mobile-commerce-confirm-cover.megafon form{
-  background-image: url('../img/logo_megafon.svg');
+  background-image: url('_Resources/img/logo_megafon.svg');
 }
 #mobile-commerce-confirm-cover.yota form{
-  background-image: url('../img/logo_yota.png');
+  background-image: url('_Resources/img/logo_yota.png');
 }
 #mobile-commerce-confirm-cover.tele2 form{
-  background-image: url('../img/logo_tele2.png');
+  background-image: url('_Resources/img/logo_tele2.png');
 }
 #qr{
   margin: 20px auto 15px;
@@ -1367,7 +1359,7 @@ button.qr{
   top:15px;
   display: block;
   position: absolute;
-  background-image: url('../img/close_icon.png');
+  background-image: url('_Resources/img/close_icon.png');
   background-size: auto 100%;
   background-repeat: no-repeat;
   width: 37px;
@@ -1467,7 +1459,7 @@ button.qr{
 }
 
 #overlay-cvv ul li.cvc input {
-  background-image: url('../img/mark_cvc_empty.svg');
+  background-image: url('_Resources/img/mark_cvc_empty.svg');
   background-position: 90% center;
   background-size: auto 100%;
 }
@@ -1526,7 +1518,7 @@ multibonus
 */
 @font-face {
   font-family: 'VTBGroupWeb';
-  src: url("fonts/vtb/VTB45__W.woff2") format("woff2"), url("fonts/vtb/VTB45__W.woff") format("woff");
+  src: url("css/fonts/vtb/VTB45__W.woff2") format("woff2"), url("fonts/vtb/VTB45__W.woff") format("woff");
   font-weight: 300;
   font-style: normal; }
 
@@ -1544,7 +1536,7 @@ multibonus
 
 @font-face {
   font-family: 'VTBGroupWeb';
-  src: url("fonts/vtb/VTB55__W.woff2") format("woff2"), url("fonts/vtb/VTB55__W.woff") format("woff");
+  src: url("css/fonts/vtb/VTB55__W.woff2") format("woff2"), url("fonts/vtb/VTB55__W.woff") format("woff");
   font-weight: 400;
   font-style: normal; }
 
@@ -1562,7 +1554,7 @@ multibonus
 
 @font-face {
   font-family: 'VTBGroupWeb';
-  src: url("fonts/vtb/VTB65__W.woff2") format("woff2"), url("fonts/vtb/VTB65__W.woff") format("woff");
+  src: url("css/fonts/vtb/VTB65__W.woff2") format("woff2"), url("fonts/vtb/VTB65__W.woff") format("woff");
   font-weight: 500;
   font-style: normal; }
 
@@ -1580,7 +1572,7 @@ multibonus
 
 @font-face {
   font-family: 'VTBGroupWeb';
-  src: url("fonts/vtb/VTB75__W.woff2") format("woff2"), url("fonts/vtb/VTB75__W.woff") format("woff");
+  src: url("css/fonts/vtb/VTB75__W.woff2") format("woff2"), url("fonts/vtb/VTB75__W.woff") format("woff");
   font-weight: 700;
   font-style: normal; }
 
@@ -1750,7 +1742,7 @@ multibonus
   margin: 24px 0 8px;
 }
 .welcome-block__subtitle {
-  background: url('../img/ico_wallet_vtb_multibonus.svg');
+  background: url('_Resources/img/ico_wallet_vtb_multibonus.svg');
   background-size: 19px auto;
   background-position: left center;
   background-repeat: no-repeat;
@@ -1791,7 +1783,7 @@ multibonus
   padding: 24px 16px 4px;
 }
 .response-block__check {
-  background: url('../img/ico_check_vtb_multibonus.svg');
+  background: url('_Resources/img/ico_check_vtb_multibonus.svg');
   background-size: 56px 46px;
   background-position: center;
   background-repeat: no-repeat;
